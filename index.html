@@ -1227,15 +1227,16 @@ print(data.decode("utf-8"))</code></pre>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">البحث عن نتيجة طالب يلزم اضافة token الى Header عبر زر القفل</p>
+                        <p class="marked">البحث عن نتيجة طالب يلزم اضافة token الى Header   </p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/marks/{year}/{level}/{number}</span></code></pre>
                         <p>
-                          <h3>Usage and SDK Samples</h3>
+                          <h3>Usage and SDK Samples امثلة على  اللغات البرمجية</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Marks-getMarks-0-curl">Curl</a></li>
+                                                 <li class="active" class=""><a href="#examples-Marks-getMarks-0-php">PHP</a></li>
+												 <li ><a href="#examples-Marks-getMarks-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Marks-getMarks-0-java">Java</a></li>
                           <li class=""><a href="#examples-Marks-getMarks-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Marks-getMarks-0-groovy">Groovy</a></li>-->
@@ -1243,19 +1244,44 @@ print(data.decode("utf-8"))</code></pre>
                           <li class=""><a href="#examples-Marks-getMarks-0-javascript">JavaScript</a></li>
                           <!--<li class=""><a href="#examples-Marks-getMarks-0-angular">Angular</a></li>-->
                           <li class=""><a href="#examples-Marks-getMarks-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Marks-getMarks-0-php">PHP</a></li>
+
                           <li class=""><a href="#examples-Marks-getMarks-0-perl">Perl</a></li>
                           <li class=""><a href="#examples-Marks-getMarks-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Marks-getMarks-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl --location --request GET 'http://yemenexam.com/ws/marks/<string>/<string>/<integer>?sum=%3Cinteger%3E' \
+                         <div class="tab-pane active" id="examples-Marks-getMarks-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "Authorization: eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY"
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+?></code></pre>
+                            </div>
+							<div class="tab-pane " id="examples-Marks-getMarks-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl --location --request GET 'http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}' \
 --header 'Authorization: eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY'</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Marks-getMarks-0-java">
                             <pre class="prettyprint"><code class="language-java">Unirest.setTimeouts(0, 0);
-HttpResponse<String> response = Unirest.get("http://yemenexam.com/ws/marks/<string>/<string>/<integer>?sum=%3Cinteger%3E")
+HttpResponse<String> response = Unirest.get("http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}")
   .header("Authorization", "eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY")
   .asString();
 </code></pre>
@@ -1338,31 +1364,7 @@ Console.WriteLine(response.Content);
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Marks-getMarks-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_HTTPHEADER => array(
-    "Authorization: eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY"
-  ),
-));
-
-$response = curl_exec($curl);
-
-curl_close($curl);
-echo $response;
-?></code></pre>
-                            </div>
+                           
 
                             <div class="tab-pane" id="examples-Marks-getMarks-0-perl">
                               <pre class="prettyprint"><code class="language-perl">$client = new http\Client;
