@@ -6,8 +6,7 @@ info:
 servers:
 - url: http://yemenexam.com/ws
   description: الرابط الرئيسي
-security:
-- bearerAuth: []
+
 paths:
   /auth:
     post:
@@ -37,8 +36,10 @@ paths:
     get:
       tags:
       - Marks
-      description: sets a switch to a specific value on a timer
-      operationId: setSwitchTimer
+      description: البحث عن نتيجة طالب يلزم اضافة token الى Header عبر زر القفل
+      operationId: getMarks
+      security:
+        - bearerAuth: []
       parameters:
       - name: year
         in: path
@@ -196,6 +197,6 @@ components:
       description: في حالة الخطاء
   securitySchemes:
     bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+      type: apiKey
+      in: header       # can be "header", "query" or "cookie"
+      name: Authorization  # name of the header, query parameter or cookie
