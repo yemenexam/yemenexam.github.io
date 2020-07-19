@@ -1,0 +1,14 @@
+# Reference: https://swagger.io/specification/
+
+openapi: 3.0.0
+
+info:
+  title: Example API
+  version: 0.0.0
+
+paths:
+  "/":
+    get:
+      responses:
+        200:
+          description: OK
