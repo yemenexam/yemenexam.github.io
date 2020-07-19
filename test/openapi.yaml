@@ -4,7 +4,7 @@ info:
   description: شرح Api
   version: 1.0.0
 servers:
-- url: http://yemenexam.com/ws
+- url: https://yemenexam.com/ws
   description: الرابط الرئيسي
 
 paths:
