@@ -6,6 +6,8 @@ info:
 servers:
 - url: http://yemenexam.com/ws
   description: الرابط الرئيسي
+security:
+- bearerAuth: []
 paths:
   /auth:
     post:
@@ -56,11 +58,11 @@ paths:
         style: simple
         explode: false
         schema:
-          type: integer
+          type: string
           enum:
-          - 9
-          - 12
-          - 14
+          - "9"
+          - "12"
+          - "14"
       - name: number
         in: path
         required: true
@@ -83,9 +85,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponse'
-      x-swagger-router-controller: ZWave
-  x-swagger-router-controller: ZWave
+                $ref: '#/components/schemas/ReuseltModel'
+      x-swagger-router-controller: Marks
+  x-swagger-router-controller: Marks
 components:
   schemas:
     ApiResponse:
@@ -97,6 +99,71 @@ components:
         message:
           type: string
           example: everything is ok
+    ReuseltModel:
+      title: بيانات الطالب
+      type: object
+      properties:
+        Name:
+          title: The Name schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: ' احمد محمد الخودانيي -'
+          default: ""
+        School:
+          title: The School schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: الخنساء
+          default: ""
+        Result:
+          title: The Result schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: PASS
+          default: ""
+        Total:
+          title: The Total schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: "467.0"
+          default: ""
+        Number:
+          title: The Number schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: "1"
+          default: ""
+        Rate:
+          title: The Rate schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: "66.71"
+          default: ""
+        City:
+          title: The City schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: صنعاء القديمه / صنعاء القديمه
+          default: ""
+        Dep:
+          title: The Dep schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: التاسع اساسي
+          default: ""
+        Level:
+          title: The Level schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: اساسي
+          default: ""
+        err:
+          title: The err schema
+          type: integer
+          description: An explanation about the purpose of this instance.
+          example: 0
+          default: 0
+      description: The root schema comprises the entire JSON document.
     body:
       required:
       - pass
