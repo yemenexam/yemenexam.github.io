@@ -1,0 +1,202 @@
+openapi: 3.0.0
+info:
+  title: Yemenexam Api
+  description: شرح Api
+  version: 1.0.0
+servers:
+- url: http://yemenexam.com/ws
+  description: الرابط الرئيسي
+
+paths:
+  /auth:
+    post:
+      tags:
+      - Auth
+      operationId: auth
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/body'
+        required: true
+      responses:
+        "200":
+          description: تم تسجيل الدخول بنجاح
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        "401":
+          description: خطاء في تسجيل الدخول
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+  /marks/{year}/{level}/{number}:
+    get:
+      tags:
+      - Marks
+      description: البحث عن نتيجة طالب يلزم اضافة token الى Header عبر زر القفل
+      operationId: getMarks
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: year
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: level
+        in: path
+        description: |
+          رقم الطالب:
+           * `9` - الصف التاسع
+           * `12` - الصف الثالث ثانوي قسم علمي
+           * `14` - الصف الثالث ثانوي قسم ادبي
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          enum:
+          - "9"
+          - "12"
+          - "14"
+      - name: number
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+      - name: sum
+        in: query
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReuseltModel'
+      x-swagger-router-controller: Marks
+  x-swagger-router-controller: Marks
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+          example: everything is ok
+    ReuseltModel:
+      title: بيانات الطالب
+      type: object
+      properties:
+        Name:
+          title: The Name schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: ' احمد محمد الخودانيي -'
+          default: ""
+        School:
+          title: The School schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: الخنساء
+          default: ""
+        Result:
+          title: The Result schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: PASS
+          default: ""
+        Total:
+          title: The Total schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: "467.0"
+          default: ""
+        Number:
+          title: The Number schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: "1"
+          default: ""
+        Rate:
+          title: The Rate schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: "66.71"
+          default: ""
+        City:
+          title: The City schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: صنعاء القديمه / صنعاء القديمه
+          default: ""
+        Dep:
+          title: The Dep schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: التاسع اساسي
+          default: ""
+        Level:
+          title: The Level schema
+          type: string
+          description: An explanation about the purpose of this instance.
+          example: اساسي
+          default: ""
+        err:
+          title: The err schema
+          type: integer
+          description: An explanation about the purpose of this instance.
+          example: 0
+          default: 0
+      description: The root schema comprises the entire JSON document.
+    body:
+      required:
+      - pass
+      - user
+      type: object
+      properties:
+        user:
+          type: string
+        pass:
+          type: string
+    inline_response_200:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 545545457
+        token:
+          type: string
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY
+    inline_response_401:
+      type: object
+      properties:
+        err:
+          type: integer
+          format: int32
+        message:
+          type: string
+          example: خطاء في بيانات الدخول
+      description: في حالة الخطاء
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header       # can be "header", "query" or "cookie"
+      name: Authorization  # name of the header, query parameter or cookie
