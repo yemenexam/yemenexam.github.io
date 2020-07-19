@@ -893,14 +893,14 @@
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Auth-auth-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl --location --request POST 'http://yemenexam.com/ws/auth' \
+                            <pre class="prettyprint"><code class="language-bsh">curl --location --request POST 'https://yemenexam.com/ws/auth' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'pass=<string>' \
 --data-urlencode 'user=<string>'</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Auth-auth-0-java">
                             <pre class="prettyprint"><code class="language-java">Unirest.setTimeouts(0, 0);
-HttpResponse<String> response = Unirest.post("http://yemenexam.com/ws/auth")
+HttpResponse<String> response = Unirest.post("https://yemenexam.com/ws/auth")
   .header("Content-Type", "application/x-www-form-urlencoded")
   .field("pass", "<string>")
   .field("user", "<string>")
@@ -914,7 +914,7 @@ HttpResponse<String> response = Unirest.post("http://yemenexam.com/ws/auth")
 MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
 RequestBody body = RequestBody.create(mediaType, "pass=<string>&user=<string>");
 Request request = new Request.Builder()
-  .url("http://yemenexam.com/ws/auth")
+  .url("https://yemenexam.com/ws/auth")
   .method("POST", body)
   .addHeader("Content-Type", "application/x-www-form-urlencoded")
   .build();
@@ -931,7 +931,7 @@ Response response = client.newCall(request).execute();</code></pre>
 
 dispatch_semaphore_t sema = dispatch_semaphore_create(0);
 
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://yemenexam.com/ws/auth"]
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://yemenexam.com/ws/auth"]
   cachePolicy:NSURLRequestUseProtocolCachePolicy
   timeoutInterval:10.0];
 NSDictionary *headers = @{
@@ -978,7 +978,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://yemenexam.com/ws/auth", requestOptions)
+fetch("https://yemenexam.com/ws/auth", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -989,7 +989,7 @@ fetch("http://yemenexam.com/ws/auth", requestOptions)
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
                             <div class="tab-pane" id="examples-Auth-auth-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">var client = new RestClient("http://yemenexam.com/ws/auth");
+                              <pre class="prettyprint"><code class="language-cs">var client = new RestClient("https://yemenexam.com/ws/auth");
 client.Timeout = -1;
 var request = new RestRequest(Method.POST);
 request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -1008,7 +1008,7 @@ Console.WriteLine(response.Content);
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://yemenexam.com/ws/auth",
+  CURLOPT_URL => "https://yemenexam.com/ws/auth",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -1032,7 +1032,7 @@ echo $response;
                             <div class="tab-pane" id="examples-Auth-auth-0-perl">
                               <pre class="prettyprint"><code class="language-perl">$client = new http\Client;
 $request = new http\Client\Request;
-$request->setRequestUrl('http://yemenexam.com/ws/auth');
+$request->setRequestUrl('https://yemenexam.com/ws/auth');
 $request->setRequestMethod('POST');
 $body = new http\Message\Body;
 $body->append(new http\QueryString(array(
@@ -1051,7 +1051,7 @@ echo $response->getBody();
                             <div class="tab-pane" id="examples-Auth-auth-0-python">
                               <pre class="prettyprint"><code class="language-python">import http.client
 import mimetypes
-conn = http.client.HTTPSConnection("http://yemenexam.com/ws")
+conn = http.client.HTTPSConnection("https://yemenexam.com/ws")
 payload = 'pass=%3Cstring%3E&user=%3Cstring%3E'
 headers = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -1256,7 +1256,7 @@ print(data.decode("utf-8"))</code></pre>
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}",
+  CURLOPT_URL => "https://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -1276,12 +1276,12 @@ echo $response;
 ?></code></pre>
                             </div>
 							<div class="tab-pane " id="examples-Marks-getMarks-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl --location --request GET 'http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}' \
+                            <pre class="prettyprint"><code class="language-bsh">curl --location --request GET 'https://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}' \
 --header 'Authorization: eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY'</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Marks-getMarks-0-java">
                             <pre class="prettyprint"><code class="language-java">Unirest.setTimeouts(0, 0);
-HttpResponse<String> response = Unirest.get("http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}")
+HttpResponse<String> response = Unirest.get("https://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}")
   .header("Authorization", "eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY")
   .asString();
 </code></pre>
@@ -1291,7 +1291,7 @@ HttpResponse<String> response = Unirest.get("http://yemenexam.com/ws/marks/{year
                             <pre class="prettyprint"><code class="language-java">OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 Request request = new Request.Builder()
-  .url("http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}")
+  .url("https://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}")
   .method("GET", null)
   .addHeader("Authorization", "eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY")
   .build();
@@ -1306,7 +1306,7 @@ Response response = client.newCall(request).execute();</code></pre>
 
 dispatch_semaphore_t sema = dispatch_semaphore_create(0);
 
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}"]
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}"]
   cachePolicy:NSURLRequestUseProtocolCachePolicy
   timeoutInterval:10.0];
 NSDictionary *headers = @{
@@ -1337,7 +1337,7 @@ dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
 
                             <div class="tab-pane" id="examples-Marks-getMarks-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var settings = {
-  "url": "http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}",
+  "url": "https://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}",
   "method": "GET",
   "timeout": 0,
   "headers": {
@@ -1355,7 +1355,7 @@ $.ajax(settings).done(function (response) {
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
                             <div class="tab-pane" id="examples-Marks-getMarks-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">var client = new RestClient("http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}");
+                              <pre class="prettyprint"><code class="language-cs">var client = new RestClient("https://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}");
 client.Timeout = -1;
 var request = new RestRequest(Method.GET);
 request.AddHeader("Authorization", "eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY");
@@ -1369,7 +1369,7 @@ Console.WriteLine(response.Content);
                             <div class="tab-pane" id="examples-Marks-getMarks-0-perl">
                               <pre class="prettyprint"><code class="language-perl">$client = new http\Client;
 $request = new http\Client\Request;
-$request->setRequestUrl('http://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}');
+$request->setRequestUrl('https://yemenexam.com/ws/marks/{year}/{level}/{number}?sum={sum}');
 $request->setRequestMethod('GET');
 $request->setOptions(array());
 $request->setHeaders(array(
@@ -1384,7 +1384,7 @@ echo $response->getBody();
                             <div class="tab-pane" id="examples-Marks-getMarks-0-python">
                               <pre class="prettyprint"><code class="language-python">import http.client
 import mimetypes
-conn = http.client.HTTPSConnection("http://yemenexam.com/ws")
+conn = http.client.HTTPSConnection("https://yemenexam.com/ws")
 payload = ''
 headers = {
   'Authorization': 'eyJpc3MiOiJodHRwOlwvXC9Mb2NhbGhvc3RcL2F1dGhcLzIiLCJpYXQiOjdDRcdTA2MmFcdTA2NDhcdTA2MmNcdTA2NGFcdTA2MjkgXHUwNjI3XHUwNjQ0XHUwNjQ1XHUwNjM5XHUwNjQ2XHUwNjQ4XHUwNjRhIiwidXNlcl9pZCI6IjU0NTUiLCJ2aWV3sab7MKEvFpnY'
